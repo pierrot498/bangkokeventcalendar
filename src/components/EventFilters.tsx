@@ -22,7 +22,7 @@ export default function EventFilters({ filters, areas }: { filters: F; areas: st
           return (
             <Link
               key={c.label}
-              href={filtersToHref({ ...filters, when: c.key })}
+              href={filtersToHref({ ...filters, when: c.key, page: 1 })}
               className={`whitespace-nowrap rounded-full border px-3.5 py-1.5 text-sm font-semibold ${active ? "border-[color:var(--color-ink)] bg-[color:var(--color-ink)] text-white" : "border-[color:var(--color-line)] bg-white hover:border-[color:var(--color-ink)]"}`}
             >
               {c.label}

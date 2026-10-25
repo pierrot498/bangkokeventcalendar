@@ -56,6 +56,11 @@ export default async function SportPage({ params }: Props) {
         <p className="mt-2 max-w-2xl text-[color:var(--color-ink-soft)]">{categoryBlurb(sub)}</p>
       </header>
       <EventGrid events={events} />
+      {events.length >= 120 && (
+        <p className="text-center">
+          <Link href={`/events?sport=${sub}`} className="inline-block rounded-lg border border-[color:var(--color-line)] bg-white px-4 py-2 text-sm font-semibold hover:border-[color:var(--color-ink)]">{t.events.seeAllIn(name)} →</Link>
+        </p>
+      )}
       <div className="space-y-3">
         <h2 className="text-lg font-bold">{t.sports.allSports}</h2>
         <CategoryTiles categories={SPORT_CATEGORIES.filter((s) => s.slug !== sub)} compact />

@@ -99,10 +99,9 @@ export function bangkokRange(key: DateRangeKey, now = new Date()): { start: Date
     case "weekend":
       return bangkokWeekend(now);
     case "week": {
-      // Now → end of Sunday of the current Mon–Sun week.
-      const wd = bangkokParts(now).weekday;
-      const toSunday = wd === 0 ? 0 : 7 - wd;
-      return { start: now, end: new Date(dayStart + (toSunday + 1) * DAY_MS - 1) };
+      // Rolling: now → end of the 7th Bangkok day (today + 6). A calendar
+      // Mon–Sun week would shrink to "today only" on Sundays.
+      return { start: now, end: new Date(dayStart + 7 * DAY_MS - 1) };
     }
     case "month": {
       const p = bangkokParts(now);

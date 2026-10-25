@@ -57,6 +57,11 @@ export default async function CategoryPage({ params }: Props) {
         <p className="mt-2 max-w-2xl text-[color:var(--color-ink-soft)]">{categoryBlurb(slug)}</p>
       </header>
       <EventGrid events={events} />
+      {events.length >= 120 && (
+        <p className="text-center">
+          <Link href={`/events?category=${slug}`} className="inline-block rounded-lg border border-[color:var(--color-line)] bg-white px-4 py-2 text-sm font-semibold hover:border-[color:var(--color-ink)]">{t.events.seeAllIn(name)} →</Link>
+        </p>
+      )}
     </div>
   );
 }

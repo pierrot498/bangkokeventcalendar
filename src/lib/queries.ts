@@ -52,29 +52,51 @@ export type EventQuery = {
   excludeId?: string | null;
   featuredOnly?: boolean;
   ascending?: boolean;
+  offset?: number;
 };
 
 // Events overlapping [start, end] (start defaults to now → upcoming only:
 // past events drop out of every listing automatically).
-export async function listEvents(q: EventQuery = {}): Promise<EventRow[]> {
+function eventQuery(sb: NonNullable<ReturnType<typeof getSupabasePublic>>, q: EventQuery, count: boolean) {
   const startIso = (q.start ?? new Date()).toISOString();
-  return run<EventRow[]>("listEvents", "bke_events", [], (sb) => {
-    let query = sb
-      .from("bke_events")
-      .select(LIST_COLS)
-      .in("status", ["published", "cancelled"])
-      .is("duplicate_of", null)
-      .or(`starts_at.gte.${startIso},ends_at.gte.${startIso}`);
-    if (q.end) query = query.lte("starts_at", q.end.toISOString());
-    if (q.category) query = query.eq("category_slug", q.category);
-    if (q.sub) query = query.eq("subcategory_slug", q.sub);
-    if (q.freeOnly) query = query.eq("is_free", true);
-    if (q.area) query = query.eq("area", q.area);
-    if (q.venueId) query = query.eq("venue_id", q.venueId);
-    if (q.excludeId) query = query.neq("id", q.excludeId);
-    if (q.featuredOnly) query = query.eq("featured", true);
-    return query.order("starts_at", { ascending: q.ascending ?? true }).limit(q.limit ?? 200) as unknown as PromiseLike<Res<EventRow[]>>;
-  });
+  let query = sb
+    .from("bke_events")
+    .select(LIST_COLS, count ? { count: "exact" } : undefined)
+    .in("status", ["published", "cancelled"])
+    .is("duplicate_of", null)
+    .or(`starts_at.gte.${startIso},ends_at.gte.${startIso}`);
+  if (q.end) query = query.lte("starts_at", q.end.toISOString());
+  if (q.category) query = query.eq("category_slug", q.category);
+  if (q.sub) query = query.eq("subcategory_slug", q.sub);
+  if (q.freeOnly) query = query.eq("is_free", true);
+  if (q.area) query = query.eq("area", q.area);
+  if (q.venueId) query = query.eq("venue_id", q.venueId);
+  if (q.excludeId) query = query.neq("id", q.excludeId);
+  if (q.featuredOnly) query = query.eq("featured", true);
+  const limit = q.limit ?? 200;
+  const offset = q.offset ?? 0;
+  return query.order("starts_at", { ascending: q.ascending ?? true }).order("id").range(offset, offset + limit - 1);
+}
+
+export async function listEvents(q: EventQuery = {}): Promise<EventRow[]> {
+  return run<EventRow[]>("listEvents", "bke_events", [], (sb) => eventQuery(sb, q, false) as unknown as PromiseLike<Res<EventRow[]>>);
+}
+
+// One page of events plus the total match count (for /events pagination).
+export async function listEventsPage(q: EventQuery): Promise<{ rows: EventRow[]; total: number }> {
+  const sb = getSupabasePublic();
+  if (!sb) return { rows: [], total: 0 };
+  try {
+    const { data, error, count } = await eventQuery(sb, q, true);
+    if (error) {
+      if (!isMissingTableError(error)) console.error(`[supabase] listEventsPage FAILED: ${error.message}`);
+      return { rows: [], total: 0 };
+    }
+    return { rows: (data ?? []) as unknown as EventRow[], total: count ?? (data?.length ?? 0) };
+  } catch (e) {
+    console.error(`[supabase] listEventsPage THREW: ${e instanceof Error ? e.message : String(e)}`);
+    return { rows: [], total: 0 };
+  }
 }
 
 // Past events at a venue (newest first).

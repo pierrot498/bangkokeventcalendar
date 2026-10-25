@@ -16,7 +16,7 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default async function SportsHub() {
-  const events = await listEvents({ category: "sports", limit: 200 });
+  const events = await listEvents({ category: "sports", limit: 1000 });
   const bySub = new Map<string, typeof events>();
   for (const e of events) {
     const k = e.subcategory_slug ?? "";

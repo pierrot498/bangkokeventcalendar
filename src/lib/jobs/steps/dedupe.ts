@@ -36,12 +36,13 @@ export type Row = {
   tags: string[] | null;
   source: string;
   featured: boolean;
+  all_day: boolean;
   dedupe_key: string | null;
   created_at: string;
 };
 
 const COLS =
-  "id, slug, title, summary, description, starts_at, ends_at, venue_id, venue_name, area, address, price_text, ticket_url, source_url, image_url, organizer, subcategory_slug, tags, source, featured, dedupe_key, created_at";
+  "id, slug, title, summary, description, starts_at, ends_at, venue_id, venue_name, area, address, price_text, ticket_url, source_url, image_url, organizer, subcategory_slug, tags, source, featured, all_day, dedupe_key, created_at";
 
 const MERGE_FIELDS = [
   "summary",
@@ -124,7 +125,7 @@ function dice(a: string, b: string): number {
 }
 
 const DISCRIMINATORS =
-  /^(triathlon|duathlon|aquathlon|swimrun|marathon|half|ultra|trail|kids|junior|women|men|\d+k|\d+km|day\d*|night|morning|matinee|part\d*|ii|iii|iv|\d+)$/;
+  /^(triathlon|duathlon|aquathlon|swimrun|marathon|half|ultra|trail|kids|junior|women|men|ladies|mixed|low|high|beginner|beginners|intermediate|advanced|starter|pro|open|\d+k|\d+km|day\d*|night|morning|matinee|part\d*|ii|iii|iv|\d+)$/;
 const LOCATION = /^(bangkok|bkk|thailand|กรุงเทพ|กรุงเทพฯ|กรุงเทพมหานคร)$/;
 function compactRaw(title: string): string {
   return title
@@ -150,6 +151,18 @@ export function titleSimilarity(a: string, b: string): number {
   const ra = compactRaw(a);
   if ((ca.length >= 4 && ca === cb) || (ra.length >= 6 && ra === compactRaw(b))) return 1;
   return Math.max(jaccard(ta, tb), dice(ta.join(" "), tb.join(" ")), dice(ca, cb));
+}
+
+// Two timed rows more than 90 minutes apart are different sessions (padel
+// clubs list the same class at 11:00 and 14:00). All-day rows and Bangkok
+// midnight (a date-only placeholder from some sources) match any time.
+const SESSION_GAP_MS = 90 * 60 * 1000;
+function bkkMidnight(iso: string): boolean {
+  return (Date.parse(iso) + 7 * 3600_000) % 86_400_000 === 0;
+}
+export function timesCompatible(a: Pick<Row, "starts_at" | "all_day">, b: Pick<Row, "starts_at" | "all_day">): boolean {
+  if (a.all_day || b.all_day || bkkMidnight(a.starts_at) || bkkMidnight(b.starts_at)) return true;
+  return Math.abs(Date.parse(a.starts_at) - Date.parse(b.starts_at)) <= SESSION_GAP_MS;
 }
 
 function venueSimilar(a: Row, b: Row): boolean {
@@ -198,7 +211,7 @@ export function clusters(rows: Row[]): Row[][] {
   rows.forEach((r, i) => {
     if (!keys[i].split("|")[0]) return; // empty normalised title: never match on it
     const k = keys[i];
-    if (byKey.has(k)) union(byKey.get(k)!, i);
+    if (byKey.has(k) && timesCompatible(rows[byKey.get(k)!], r)) union(byKey.get(k)!, i);
     else byKey.set(k, i);
   });
   // Pass 2: fuzzy within the same Bangkok date.
@@ -213,7 +226,7 @@ export function clusters(rows: Row[]): Row[][] {
         const a = rows[idx[x]];
         const b = rows[idx[y]];
         if (find(idx[x]) === find(idx[y])) continue;
-        if (!venueSimilar(a, b)) continue;
+        if (!venueSimilar(a, b) || !timesCompatible(a, b)) continue;
         if (titleSimilarity(a.title, b.title) >= 0.8) union(idx[x], idx[y]);
       }
     }

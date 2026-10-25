@@ -266,28 +266,39 @@ async function seedEvents(sb: SupabaseClient | null): Promise<Stats> {
     for (const v of data ?? []) venueIds.set(v.slug as string, v.id as string);
   }
 
-  // Existing events: keep their status if the dedupe job marked them as a
-  // duplicate (duplicate_of set) so a re-seed doesn't resurrect them.
+  // New slugs are inserted in bulk. Existing rows are updated one by one
+  // with only the non-empty seed values, so fields the dedupe job merged in
+  // (images, descriptions from other sources) survive a re-seed, and tags are
+  // unioned. Rows the dedupe job marked as duplicates (duplicate_of set) keep
+  // their status, so a re-seed doesn't resurrect them.
   for (const batch of chunk(rows, 200)) {
-    const { data: existing, error: exErr } = await sb.from("bke_events").select("slug, duplicate_of").in("slug", batch.map((r) => r.slug));
+    const { data: existing, error: exErr } = await sb.from("bke_events").select("slug, duplicate_of, tags").in("slug", batch.map((r) => r.slug));
     if (exErr) throw new Error(`bke_events read: ${exErr.message}`);
-    const dupes = new Set((existing ?? []).filter((r) => r.duplicate_of).map((r) => r.slug as string));
+    const ex = new Map((existing ?? []).map((r) => [r.slug as string, r as { duplicate_of: string | null; tags: string[] | null }]));
     const fresh: Record<string, unknown>[] = [];
-    const keepStatus: Record<string, unknown>[] = [];
     for (const r of batch) {
       const { _venue, _status, ...row } = r;
-      const out = { ...row, venue_id: _venue ? (venueIds.get(_venue as string) ?? null) : null };
-      if (dupes.has(r.slug)) keepStatus.push(out);
-      else fresh.push({ ...out, status: _status });
-    }
-    for (const group of [fresh, keepStatus]) {
-      if (!group.length) continue;
-      const { error } = await sb.from("bke_events").upsert(group, { onConflict: "slug" });
-      if (error) {
-        stats.errors.push(`bke_events upsert: ${error.message}`);
+      const out: Record<string, unknown> = { ...row, venue_id: _venue ? (venueIds.get(_venue as string) ?? null) : null };
+      const prev = ex.get(r.slug);
+      if (!prev) {
+        fresh.push({ ...out, status: _status });
         continue;
       }
-      stats.ok += group.length;
+      const patch: Record<string, unknown> = {};
+      for (const [k, v] of Object.entries(out)) {
+        if (k === "slug" || v === null || v === undefined) continue;
+        patch[k] = v;
+      }
+      patch.tags = Array.from(new Set([...(prev.tags ?? []), ...((out.tags as string[]) ?? [])]));
+      if (!prev.duplicate_of) patch.status = _status;
+      const { error } = await sb.from("bke_events").update(patch).eq("slug", r.slug);
+      if (error) stats.errors.push(`bke_events upsert ${r.slug}: ${error.message}`);
+      else stats.ok++;
+    }
+    if (fresh.length) {
+      const { error } = await sb.from("bke_events").insert(fresh);
+      if (error) stats.errors.push(`bke_events upsert: ${error.message}`);
+      else stats.ok += fresh.length;
     }
   }
   return stats;

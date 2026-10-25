@@ -1,0 +1,86 @@
+[
+  {
+    "id": "siam",
+    "name": "Siam Red & Gold",
+    "ground": "#E30613",
+    "primary": "#E30613",
+    "accent": "#FFB627",
+    "ink": "#10131F",
+    "light": "#FFFFFF",
+    "mark": {
+      "fg": "#FFFFFF",
+      "highlight": "#10131F",
+      "accentOnLight": "#D18F00"
+    }
+  },
+  {
+    "id": "night",
+    "name": "Night Market",
+    "ground": "#0F1220",
+    "primary": "#FF4D6D",
+    "accent": "#FFB627",
+    "ink": "#0F1220",
+    "light": "#FFFFFF",
+    "mark": {
+      "fg": "#FFFFFF",
+      "highlight": "#FF4D6D",
+      "accentOnLight": "#D98B00"
+    }
+  },
+  {
+    "id": "chao",
+    "name": "Chao Phraya",
+    "ground": "#0B4F5C",
+    "primary": "#FF7A59",
+    "accent": "#F2D7A6",
+    "ink": "#08262D",
+    "light": "#FFF8EE",
+    "mark": {
+      "fg": "#FFF8EE",
+      "highlight": "#FF7A59",
+      "accentOnLight": "#E0663F"
+    }
+  },
+  {
+    "id": "jade",
+    "name": "Temple Jade",
+    "ground": "#0E6B58",
+    "primary": "#0E6B58",
+    "accent": "#D4A017",
+    "ink": "#10241F",
+    "light": "#FFF7E6",
+    "mark": {
+      "fg": "#FFF7E6",
+      "highlight": "#B8321E",
+      "accentOnLight": "#B8860B"
+    }
+  },
+  {
+    "id": "neon",
+    "name": "Neon Sukhumvit",
+    "ground": "#0A0A0F",
+    "primary": "#7B5CFF",
+    "accent": "#C6FF3D",
+    "ink": "#0A0A0F",
+    "light": "#FFFFFF",
+    "mark": {
+      "fg": "#FFFFFF",
+      "highlight": "#7B5CFF",
+      "accentOnLight": "#7B5CFF"
+    }
+  },
+  {
+    "id": "lotus",
+    "name": "Lotus Dawn",
+    "ground": "#FFF6EC",
+    "primary": "#2B2D7C",
+    "accent": "#E85D8E",
+    "ink": "#2B2D7C",
+    "light": "#FFF6EC",
+    "mark": {
+      "fg": "#2B2D7C",
+      "highlight": "#E85D8E",
+      "accentOnLight": "#E85D8E"
+    }
+  }
+]

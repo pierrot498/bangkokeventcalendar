@@ -1,0 +1,625 @@
+[
+  {
+    "name": "Thailand Starter Kit events",
+    "url": "https://www.thailandstarterkit.com/events/",
+    "kind": "listings",
+    "category": "all",
+    "notes": "Good dated listings with official links; coverage thins out after ~3 weeks ahead."
+  },
+  {
+    "name": "Time Out Bangkok sitemap (monthly)",
+    "url": "https://www.timeout.com/bangkok/sitemaps/2026/10",
+    "kind": "listings",
+    "category": "all",
+    "notes": "Monthly article index; best way to find new event announcements. Check /sitemaps/YYYY/MM."
+  },
+  {
+    "name": "Time Out Bangkok: best art exhibitions this month",
+    "url": "https://www.timeout.com/bangkok/art/the-best-art-exhibitions-in-bangkok-this-month",
+    "kind": "listings",
+    "category": "arts-culture",
+    "notes": "Monthly gallery roundup with exact run dates and prices."
+  },
+  {
+    "name": "IMPACT Muang Thong Thani event calendar",
+    "url": "https://www.impact.co.th/en/visitors/event-calendar",
+    "kind": "venue",
+    "category": "all",
+    "notes": "Paginated (?start=24); public and trade exhibitions with hours, halls, prices."
+  },
+  {
+    "name": "QSNCC event calendar",
+    "url": "https://www.qsncc.com/en/whats-on/event-calendar",
+    "kind": "venue",
+    "category": "all",
+    "notes": "Exhibitions and fairs at Queen Sirikit National Convention Center."
+  },
+  {
+    "name": "Paragon Hall events",
+    "url": "https://www.paragonhall.com/en/events",
+    "kind": "venue",
+    "category": "all",
+    "notes": "Royal Paragon Hall / Paragon Hall expos, forums and concerts."
+  },
+  {
+    "name": "Zipevent",
+    "url": "https://www.zipeventapp.com/",
+    "kind": "ticketing",
+    "category": "all",
+    "notes": "Thai ticketing for conferences, fairs and fan meets; good for business-tech."
+  },
+  {
+    "name": "Meetup Bangkok tech events",
+    "url": "https://www.meetup.com/find/?location=th--Bangkok&source=EVENTS&categoryId=546",
+    "kind": "meetup",
+    "category": "business-tech",
+    "notes": "BKK/hack, AI & Beers, ProductTank and similar groups."
+  },
+  {
+    "name": "TCEB event previews",
+    "url": "https://www.businesseventsthailand.com/tceb-event-preview/",
+    "kind": "listings",
+    "category": "business-tech",
+    "notes": "Thailand Convention & Exhibition Bureau previews of expos with dates and venues."
+  },
+  {
+    "name": "TAT News monthly events calendar",
+    "url": "https://www.tatnews.org/2026/09/october-event-and-calendar/",
+    "kind": "listings",
+    "category": "all",
+    "notes": "Tourism Authority of Thailand monthly calendar; November edition not yet published at time of research."
+  },
+  {
+    "name": "One Bangkok What's Happening",
+    "url": "https://www.onebangkok.com/en/whats-happening/",
+    "kind": "venue",
+    "category": "all",
+    "notes": "Event pages for One Bangkok Park/Forum; listing page renders empty, individual pages work."
+  },
+  {
+    "name": "Bangkok Art Biennale",
+    "url": "https://www.bkkartbiennale.com/",
+    "kind": "venue",
+    "category": "arts-culture",
+    "notes": "Official BAB site; venues and symposium dates."
+  },
+  {
+    "name": "BACC events",
+    "url": "https://www.bacc.or.th/en",
+    "kind": "venue",
+    "category": "arts-culture",
+    "notes": "Bangkok Art and Culture Centre; site blocks automated fetches (403)."
+  },
+  {
+    "name": "Chatuchak Market official",
+    "url": "https://www.chatuchakmarket.org/opening-times",
+    "kind": "venue",
+    "category": "markets",
+    "notes": "Official opening times."
+  },
+  {
+    "name": "Ticketmelon",
+    "url": "https://www.ticketmelon.com/",
+    "kind": "ticketing",
+    "category": "all",
+    "notes": "Used by community theatre, Ploenchit Fair, Art Battle etc."
+  },
+  {
+    "name": "Megatix Thailand",
+    "url": "https://megatix.in.th/",
+    "kind": "ticketing",
+    "category": "all",
+    "notes": "Ballet, comedy and touring shows."
+  },
+  {
+    "name": "Nation Thailand Art & Culture",
+    "url": "https://www.nationthailand.com/life/art-culture",
+    "kind": "listings",
+    "category": "arts-culture",
+    "notes": "Festival announcements, e.g. Bangkok Theatre Festival."
+  },
+  {
+    "name": "ThaiRun (race.thai.run)",
+    "url": "https://race.thai.run",
+    "kind": "race-calendar",
+    "category": "sports",
+    "notes": "Main Thai race registration platform; public GraphQL API at api.race.thai.run/graphql (searchEvent by province, eventPageFromSlug). Used by runclubbangkok scraper."
+  },
+  {
+    "name": "RunLah calendar (Bangkok)",
+    "url": "https://www.runlah.com/en/calendar/location?province=Bangkok",
+    "kind": "race-calendar",
+    "category": "sports",
+    "notes": "Thai race calendar incl. bike category; used by runclubbangkok scraper. Returns 403 to generic fetchers/curl."
+  },
+  {
+    "name": "Run Club Bangkok events",
+    "url": "https://www.runclubbangkok.com/en/events",
+    "kind": "listings",
+    "category": "sports",
+    "notes": "Aggregates thai.run + runlah Bangkok races with distances and availability."
+  },
+  {
+    "name": "Checkrace",
+    "url": "https://run.checkrace.com",
+    "kind": "ticketing",
+    "category": "sports",
+    "notes": "Registration for Gatorade BKK RUN, Pocari Sweat Run etc."
+  },
+  {
+    "name": "Race Roster",
+    "url": "https://raceroster.com",
+    "kind": "ticketing",
+    "category": "sports",
+    "notes": "Used by The Music Run, Bangkok Midnight Marathon."
+  },
+  {
+    "name": "regis.run",
+    "url": "https://www.regis.run",
+    "kind": "ticketing",
+    "category": "sports",
+    "notes": "Thai race registration (e.g. Rajavithi Run for Life)."
+  },
+  {
+    "name": "Inspire Runner",
+    "url": "https://www.inspirerunner.com",
+    "kind": "ticketing",
+    "category": "sports",
+    "notes": "Thai race registration."
+  },
+  {
+    "name": "Spartan / DEKA race finder (Bangkok)",
+    "url": "https://www.spartan.com/en/races/bangkok",
+    "kind": "race-calendar",
+    "category": "sports",
+    "notes": "DEKA FIT Bangkok; race-fit uses Spartan API (api-gate.eks.spartan.com)."
+  },
+  {
+    "name": "HYROX Thailand",
+    "url": "https://hyroxthailand.com/find-your-race/",
+    "kind": "race-calendar",
+    "category": "sports",
+    "notes": "Official HYROX calendar; race-fit scrapes hyrox.com regional sites. No Bangkok event in Oct 2026-Jan 2027 (next appears Feb 2027)."
+  },
+  {
+    "name": "REDLINE Fitness Games",
+    "url": "https://redlinefitnessgames.com/bangkok/",
+    "kind": "race-calendar",
+    "category": "sports",
+    "notes": "SE Asian hybrid fitness race series."
+  },
+  {
+    "name": "QSNCC event calendar",
+    "url": "https://qsncc.com/en/whats-on/event-calendar/",
+    "kind": "venue",
+    "category": "all",
+    "notes": "Hosts HYROX, REDLINE and expos."
+  },
+  {
+    "name": "World's Marathons",
+    "url": "https://worldsmarathons.com",
+    "kind": "race-calendar",
+    "category": "sports",
+    "notes": "International listings incl. Amazing Thailand Marathon Bangkok."
+  },
+  {
+    "name": "Thailand Cycling Association events",
+    "url": "https://www.thaicycling.or.th/events",
+    "kind": "race-calendar",
+    "category": "sports",
+    "notes": "National road/MTB/track/BMX calendar; nothing in Bangkok in window when checked."
+  },
+  {
+    "name": "Sansatan Organizer",
+    "url": "https://www.sansatan.com",
+    "kind": "ticketing",
+    "category": "sports",
+    "notes": "Small free/brand runs in Bangkok."
+  },
+  {
+    "name": "Time Out Bangkok - Top concerts of 2026",
+    "url": "https://www.timeout.com/bangkok/things-to-do/bangkoks-top-16-concerts-of-2026",
+    "kind": "listings",
+    "category": "music",
+    "notes": "Curated concert list with ticket links; good for international tours at UOB LIVE, IMPACT, Rajamangala."
+  },
+  {
+    "name": "Time Out Bangkok - Thailand music festivals",
+    "url": "https://www.timeout.com/bangkok/things-to-do/thailand-music-festivals",
+    "kind": "listings",
+    "category": "music",
+    "notes": "Festival roundup incl. Maho Rasop series, Cat Expo, Wonderfruit, Tomorrowland, EDC; flags out-of-Bangkok locations."
+  },
+  {
+    "name": "Time Out Bangkok - Music & Nightlife",
+    "url": "https://www.timeout.com/bangkok/music-nightlife",
+    "kind": "listings",
+    "category": "music",
+    "notes": "News on newly announced concerts (e.g. Westlife, Olivia Dean, Anyma)."
+  },
+  {
+    "name": "BK Magazine - Big list of concerts & festivals H2 2026",
+    "url": "https://www.bkmagazine.com/city-living/the-big-list-of-bangkok-concerts-and-festivals-for-the-second-half-of-2026/",
+    "kind": "listings",
+    "category": "music",
+    "notes": "Updated regularly; was returning 502 at research time."
+  },
+  {
+    "name": "BK Magazine - Halloween events 2026",
+    "url": "https://www.bkmagazine.com/entertainment/the-big-list-of-halloween-events-in-bangkok-for-2026/",
+    "kind": "listings",
+    "category": "nightlife",
+    "notes": "45+ Halloween parties with ticket links; BK runs similar lists for NYE each December."
+  },
+  {
+    "name": "Thairath English - Lifestyle",
+    "url": "https://en.thairath.co.th/lifestyle/life/2957422",
+    "kind": "listings",
+    "category": "music",
+    "notes": "Stadium concert roundups (Rajamangala), Thai artists."
+  },
+  {
+    "name": "Bangkok Venues - Events",
+    "url": "https://bangkokvenues.com/events/",
+    "kind": "listings",
+    "category": "nightlife",
+    "notes": "Best machine-readable club-night calendar found (Horn, AETHER, Speakerbox, Clutch, Mustache, Sing Sing, Elsewhere, Bar Temp)."
+  },
+  {
+    "name": "Resident Advisor - Bangkok",
+    "url": "https://ra.co/events/th/bangkok",
+    "kind": "listings",
+    "category": "nightlife",
+    "notes": "Canonical club listings; blocks automated fetch (403), check manually."
+  },
+  {
+    "name": "ThaiTicketMajor",
+    "url": "https://www.thaiticketmajor.com/concert/",
+    "kind": "ticketing",
+    "category": "music",
+    "notes": "Main ticketing for big concerts (BIGBANG, 5SOS, wave to earth)."
+  },
+  {
+    "name": "Live Nation Tero",
+    "url": "https://www.livenationtero.co.th/",
+    "kind": "ticketing",
+    "category": "music",
+    "notes": "Promoter for BTS, LANY, FKJ, Westlife and other international tours."
+  },
+  {
+    "name": "Eventpop",
+    "url": "https://www.eventpop.me/",
+    "kind": "ticketing",
+    "category": "all",
+    "notes": "DIAGE, party boats, assorted events."
+  },
+  {
+    "name": "Ticketmaster Thailand",
+    "url": "https://www.ticketmaster.co.th",
+    "kind": "ticketing",
+    "category": "music",
+    "notes": "Westlife 2027 and other Live Nation shows."
+  },
+  {
+    "name": "kpopofficial - Thailand schedule",
+    "url": "https://kpopofficial.com/schedule/thailand/",
+    "kind": "listings",
+    "category": "music",
+    "notes": "K-pop tour dates in Thailand (BABYMONSTER, Stray Kids)."
+  },
+  {
+    "name": "Techno Airlines - Thailand festivals",
+    "url": "https://www.technoairlines.com/techno-festivals/thailand",
+    "kind": "listings",
+    "category": "music",
+    "notes": "Electronic festival lineups (DIAGE)."
+  },
+  {
+    "name": "Wonderfruit",
+    "url": "https://wonderfruit.co/",
+    "kind": "venue",
+    "category": "festivals",
+    "notes": "Official festival site and tickets."
+  },
+  {
+    "name": "Tomorrowland Thailand",
+    "url": "https://thailand.tomorrowland.com/",
+    "kind": "venue",
+    "category": "festivals",
+    "notes": "Official site."
+  },
+  {
+    "name": "NEON Countdown",
+    "url": "https://neoncountdown.asia/",
+    "kind": "ticketing",
+    "category": "nightlife",
+    "notes": "NYE EDM festival at Rajamangala; 2026/27 edition not yet announced at research time."
+  },
+  {
+    "name": "ICONSIAM promotions",
+    "url": "https://iconsiam.com/th/promotions",
+    "kind": "venue",
+    "category": "festivals",
+    "notes": "Official source for Amazing Thailand Countdown and Loy Krathong programmes; 2026/27 details not yet published."
+  },
+  {
+    "name": "TAT News",
+    "url": "https://www.tatnews.org/",
+    "kind": "listings",
+    "category": "festivals",
+    "notes": "Official tourism news for Loy Krathong, countdowns, Vijit Chao Phraya."
+  },
+  {
+    "name": "Bangkok Spirit - Loy Krathong guide",
+    "url": "https://www.bangkok-spirit.com/guides/loy-krathong-bangkok/",
+    "kind": "listings",
+    "category": "festivals",
+    "notes": "Confirms 24 Nov 2026 date and main floating spots."
+  },
+  {
+    "name": "Mixmag Asia - Thailand events",
+    "url": "https://mixmag.asia/events/thailand",
+    "kind": "listings",
+    "category": "nightlife",
+    "notes": "Club and underground event listings; lagging at research time."
+  },
+  {
+    "name": "Bandwagon Asia",
+    "url": "https://www.bandwagon.asia/",
+    "kind": "listings",
+    "category": "music",
+    "notes": "Tour announcements for Asian dates (NCT 127, Fujii Kaze)."
+  },
+  {
+    "name": "Bangkok Padel Community - Tournaments & events",
+    "url": "https://bangkokpadelcommunity.com/tournaments",
+    "kind": "listings",
+    "category": "sports",
+    "notes": "Aggregates Bangkok padel americanos/tournaments from Playtomic, Kross and Padel Society; updated twice weekly. Best single padel source."
+  },
+  {
+    "name": "Bangkok Padel Community - Court rankings",
+    "url": "https://bangkokpadelcommunity.com/courts",
+    "kind": "listings",
+    "category": "sports",
+    "notes": "19 Bangkok padel clubs with areas, booking channels and websites."
+  },
+  {
+    "name": "Bangkok Padel Community (Facebook group)",
+    "url": "https://web.facebook.com/groups/bangkok.padel.community",
+    "kind": "meetup",
+    "category": "sports",
+    "notes": "Main Bangkok padel community group; game and event posts."
+  },
+  {
+    "name": "Bangkok Padel Community (Instagram)",
+    "url": "https://www.instagram.com/bangkokpadelcommunity/",
+    "kind": "instagram",
+    "category": "sports",
+    "notes": "Padel community Instagram."
+  },
+  {
+    "name": "Playtomic - Bangkok clubs",
+    "url": "https://playtomic.com/clubs/baan-padel",
+    "kind": "ticketing",
+    "category": "sports",
+    "notes": "Playtomic tournaments API (api.playtomic.io/v1/tournaments, 50km around Bangkok) lists public americanos; web pages may 403 to bots."
+  },
+  {
+    "name": "Thailand Padel Association",
+    "url": "https://thailandpadelassociation.org/en",
+    "kind": "race-calendar",
+    "category": "sports",
+    "notes": "National padel body; rankings and national events (FB: facebook.com/thailandpadelassociation)."
+  },
+  {
+    "name": "Thai Padel Series",
+    "url": "https://thaipadelseries.com/",
+    "kind": "race-calendar",
+    "category": "sports",
+    "notes": "Domestic ranking circuit; site did not load during research."
+  },
+  {
+    "name": "FIP Cupra Tour calendar",
+    "url": "https://www.padelfip.com/calendar-cupra-fip-tour/",
+    "kind": "race-calendar",
+    "category": "sports",
+    "notes": "International padel tour calendar; 2026 Thai stops were on Samui/Phangan (May)."
+  },
+  {
+    "name": "Sabai Sabai Padel Community (Meetup)",
+    "url": "https://www.meetup.com/sabai-sabai-padel-community/",
+    "kind": "meetup",
+    "category": "sports",
+    "notes": "Relaxed padel mixers; also runs SABAI SABAI sessions at Pad Thai Padel and Sterling."
+  },
+  {
+    "name": "Pad Thai Padel",
+    "url": "https://bangkokpadelcommunity.com/courts/pad-thai-padel",
+    "kind": "club",
+    "category": "sports",
+    "notes": "Padel club. Sukhumvit near BTS Thong Lo; 3 courts; books via The Padel Society. Hosted Asia Pacific Padel Tour Grand Slam Jan 2026."
+  },
+  {
+    "name": "Bangkok Padel",
+    "url": "https://www.matchi.se/facilities/bangkokpadel",
+    "kind": "club",
+    "category": "sports",
+    "notes": "Padel club. Ambassador Hotel rooftop, Sukhumvit 11; books on MATCHi. FB: facebook.com/bangkokpadel; web bangkokpadel.com"
+  },
+  {
+    "name": "Kross Padel (On Nut, Asoke, Sky, Rama 4)",
+    "url": "https://krosspadel.com/",
+    "kind": "club",
+    "category": "sports",
+    "notes": "Padel club. Four Bangkok branches; Book & Go system; many weekly americanos."
+  },
+  {
+    "name": "The Padel Co.",
+    "url": "https://www.thepadel.co/",
+    "kind": "club",
+    "category": "sports",
+    "notes": "Padel club. Sukhumvit 50, 2 indoor courts; Playtomic."
+  },
+  {
+    "name": "Padel Tennis Bangkok (Playerbox)",
+    "url": "https://playerbox.co/",
+    "kind": "club",
+    "category": "sports",
+    "notes": "Padel club. Banthat Thong Rd near Chula; 4 outdoor courts."
+  },
+  {
+    "name": "No Drama Padel",
+    "url": "https://nodramapadel.com/",
+    "kind": "club",
+    "category": "sports",
+    "notes": "Padel club. Khlong San riverside; Playtomic; weekly social americanos."
+  },
+  {
+    "name": "Bel Club 22",
+    "url": "https://belclub22.com/",
+    "kind": "club",
+    "category": "sports",
+    "notes": "Padel club. New Phetchaburi Rd; Padel Mates & Playtomic."
+  },
+  {
+    "name": "Padel Asia",
+    "url": "https://padelasia.org/",
+    "kind": "club",
+    "category": "sports",
+    "notes": "Padel club. Ratchada 18; FB facebook.com/PadelAsiaBangkokThailand; home of national team players."
+  },
+  {
+    "name": "Baan Padel",
+    "url": "https://baanpadel.com/",
+    "kind": "club",
+    "category": "sports",
+    "notes": "Padel club. Sukhumvit 67; 7 indoor courts; Playtomic."
+  },
+  {
+    "name": "RSC Ratchapruek Sports Club",
+    "url": "https://www.instagram.com/rsc.sportsclub/",
+    "kind": "club",
+    "category": "sports",
+    "notes": "Padel club. Taling Chan (Thonburi); Padel Society."
+  },
+  {
+    "name": "Sterling Sports Center",
+    "url": "https://sterlingbkk.com/",
+    "kind": "club",
+    "category": "sports",
+    "notes": "Padel club. Sukhumvit 24; hosted Tatler Padel Series Bangkok Aug 2026; busy americano calendar."
+  },
+  {
+    "name": "Top Padel",
+    "url": "https://www.topkartbangkok.com/top-padel/",
+    "kind": "club",
+    "category": "sports",
+    "notes": "Padel club. Makkasan (Phetchaburi Rd); Padel Society."
+  },
+  {
+    "name": "Beat Discovery",
+    "url": "https://www.facebook.com/BEATDiscovery.Th",
+    "kind": "club",
+    "category": "sports",
+    "notes": "Padel club. Udom Suk / Bang Na (Sukhumvit 66/1); LINE booking."
+  },
+  {
+    "name": "Sunshine Padel Bangkok",
+    "url": "https://playtomic.com/clubs/sunshine-padel",
+    "kind": "club",
+    "category": "sports",
+    "notes": "Padel club. Bang Na-Trat Soi 2; Playtomic."
+  },
+  {
+    "name": "Vita Padel Ekkamai",
+    "url": "https://www.thevitapadel.com/en/",
+    "kind": "club",
+    "category": "sports",
+    "notes": "Padel club. Ekkamai Soi 2; Playtomic."
+  },
+  {
+    "name": "My Club",
+    "url": "https://playtomic.com/clubs/my-club",
+    "kind": "club",
+    "category": "sports",
+    "notes": "Padel club. Sukhumvit 39; listed on Playtomic (from repo scrape)."
+  },
+  {
+    "name": "Muay Thai Stadiums - Rajadamnern schedule",
+    "url": "https://muaythaistadiums.com/rajadamnern-muay-thai-schedule/",
+    "kind": "listings",
+    "category": "sports",
+    "notes": "Weekly Rajadamnern promotion schedule (from stadium IG)."
+  },
+  {
+    "name": "ONE Championship events",
+    "url": "https://www.onefc.com/events/",
+    "kind": "ticketing",
+    "category": "sports",
+    "notes": "ONE Friday Fights (weekly, Lumpinee) and ONE Fight Night cards."
+  },
+  {
+    "name": "Rajadamnern Stadium",
+    "url": "https://www.rajadamnern.com/",
+    "kind": "venue",
+    "category": "sports",
+    "notes": "Official stadium site (not fetched)."
+  },
+  {
+    "name": "Wikipedia - 2026 in ONE Championship",
+    "url": "https://en.wikipedia.org/wiki/2026_in_ONE_Championship",
+    "kind": "race-calendar",
+    "category": "sports",
+    "notes": "Event list incl. Lumpinee Fight Nights."
+  },
+  {
+    "name": "Wikipedia - 2026-27 Port F.C. season",
+    "url": "https://en.wikipedia.org/wiki/2026%E2%80%9327_Port_F.C._season",
+    "kind": "race-calendar",
+    "category": "sports",
+    "notes": "Fixture list incl. ACL Elite."
+  },
+  {
+    "name": "Wikipedia - 2026-27 BG Pathum United season",
+    "url": "https://en.wikipedia.org/wiki/2026%E2%80%9327_BG_Pathum_United_F.C._season",
+    "kind": "race-calendar",
+    "category": "sports",
+    "notes": "Fixture list incl. ACL Two."
+  },
+  {
+    "name": "Wikipedia - 2026-27 Bangkok United season",
+    "url": "https://en.wikipedia.org/wiki/2026%E2%80%9327_Bangkok_United_F.C._season",
+    "kind": "race-calendar",
+    "category": "sports",
+    "notes": "Fixture list."
+  },
+  {
+    "name": "Thai League official",
+    "url": "https://thaileague.co.th/",
+    "kind": "race-calendar",
+    "category": "sports",
+    "notes": "Official fixtures and kick-off times (not fetched)."
+  },
+  {
+    "name": "All Thailand Golf Tour",
+    "url": "https://en.wikipedia.org/wiki/2026_All_Thailand_Golf_Tour",
+    "kind": "race-calendar",
+    "category": "sports",
+    "notes": "Domestic golf tour; no Bangkok-area events Nov 2026-Jan 2027."
+  },
+  {
+    "name": "ITF World Tennis Tour - Thailand",
+    "url": "https://www.itftennis.com/en/tournament/m15-nonthaburi/tha/2026/m-itf-tha-2026-012/",
+    "kind": "race-calendar",
+    "category": "sports",
+    "notes": "Nonthaburi ITF/Challenger events; Jan 2027 editions not yet published."
+  },
+  {
+    "name": "WILDER Training Club (Luma)",
+    "url": "https://luma.com/6lhe7evm",
+    "kind": "meetup",
+    "category": "sports",
+    "notes": "Free Sunday yoga + HIIT, Benjakitti Park."
+  }
+]

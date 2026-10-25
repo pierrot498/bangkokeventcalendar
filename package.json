@@ -1,0 +1,39 @@
+{
+  "name": "bangkok-event-calendar",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "seed": "tsx --conditions=react-server scripts/seed.ts",
+    "job": "tsx --conditions=react-server scripts/run-job.ts",
+    "jobs:daily": "tsx --conditions=react-server scripts/run-job.ts --daily"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.92.0",
+    "@supabase/supabase-js": "^2.105.1",
+    "cheerio": "^1.2.0",
+    "marked": "^16.4.0",
+    "next": "^15.5.28",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "server-only": "^0.0.1",
+    "zod": "^4.4.1"
+  },
+  "overrides": {
+    "postcss": "^8.5.13"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.4",
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "postcss": "^8.5.13",
+    "tailwindcss": "^4.2.4",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
